@@ -1,4 +1,4 @@
-const characterCard = ({characterName, characterHairColor, characterEyesColor, characterGender, onFavorite, onLearnMore}) => {
+const CharacterCard = ({characterName, characterHairColor, characterEyesColor, characterGender, onFavorite, onLearnMore}) => {
     return (
         <div className="card shadow-sm" style={{ width: "18rem", margin: "10px" }}>
             <div className="card-body text-center">
@@ -17,4 +17,4 @@ const characterCard = ({characterName, characterHairColor, characterEyesColor, c
     )
 }
 
-export default characterCard
+export default CharacterCard
