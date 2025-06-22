@@ -35,34 +35,20 @@ export const HomeScreen = () => {
   };
 
   return (
-    <div className="container">
-      <div className="container d-flex align-content-center justify-content-between">
-        <div>
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <a className="nav-link active" href="#">
-                Characters
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Planets
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Vehicles
-              </a>
-            </li>
-          </ul>
+    <div className="bg-dark text-light py-5">
+      <div className="container"> 
+        <div className="d-flex justify-content-end mb-4">
+          <button
+            className="btn btn-warning text-dark shadow-sm"
+            onClick={() => navigate("/favorites")}
+          >
+            See favorites ({store.favorites.length})
+          </button>
         </div>
-        <div>
-          <div>
-            <button onClick={() => navigate("/favorites")}>See favorites</button>
-          </div>
 
-          <h2>Characters</h2>
-          <div className="d-flex flex-wrap justify-content-center">
+        <section className="mb-5 p-4 bg-dark border border-light rounded shadow-lg">
+          <h2 className="text-warning mb-4 text-center">Characters</h2>
+          <div className="d-flex flex-wrap justify-content-center gap-4">
             {store.people.map((char) => (
               <CharacterCard
                 key={char.uid}
@@ -78,9 +64,11 @@ export const HomeScreen = () => {
               />
             ))}
           </div>
+        </section>
 
-          <h2>Planets</h2>
-          <div className="d-flex flex-wrap justify-content-center">
+        <section className="mb-5 p-4 bg-dark border border-light rounded shadow-lg">
+          <h2 className="text-info mb-4 text-center">Planets</h2>
+          <div className="d-flex flex-wrap justify-content-center gap-4">
             {store.planets.map((planet) => (
               <PlanetCard
                 key={planet.uid}
@@ -96,9 +84,12 @@ export const HomeScreen = () => {
               />
             ))}
           </div>
+        </section>
 
-          <h2>Vehicles</h2>
-          <div className="d-flex flex-wrap justify-content-center">
+        {/* Bloque de Vehículos */}
+        <section className="mb-5 p-4 bg-dark border border-light rounded shadow-lg">
+          <h2 className="text-primary mb-4 text-center">Vehicles</h2>
+          <div className="d-flex flex-wrap justify-content-center gap-4">
             {store.vehicles.map((vehicle) => (
               <VehicleCard
                 key={vehicle.uid}
@@ -114,7 +105,8 @@ export const HomeScreen = () => {
               />
             ))}
           </div>
-        </div>
+        </section>
+
       </div>
     </div>
   );

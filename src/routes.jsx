@@ -1,5 +1,3 @@
-// Import necessary components and functions from react-router-dom.
-
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -7,8 +5,10 @@ import {
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { HomeScreen } from "./pages/HomeScreen";
-import { Single } from "./pages/Single";
 import FavoritesScreen from "./pages/FavoritesScreen";
+import CharacterDetail from "./pages/CharacterDetail";
+import PlanetDetail from "./pages/PlanetDetail";
+import VehicleDetail from "./pages/VehicleDetail";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,8 +20,6 @@ export const router = createBrowserRouter(
 
       // Root Route: All navigation will start from here.
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
-
-        {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<HomeScreen />} />
         <Route path="/characters/:id" element={<CharacterDetail />} />
         <Route path="/planets/:id" element={<PlanetDetail />} />

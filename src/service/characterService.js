@@ -54,6 +54,53 @@ const characterService = {
             throw error;
         }
     },
+    getPersonDetails: async (id) => {
+        try {
+            const request = await fetch(`${baseUrl}/people/${id}`, {
+                method: "GET"
+            });
+            if (!request.ok) {
+                throw new Error(`HTTP error! status: ${request.status}`);
+            }
+            const response = await request.json();
+            return response;
+        } catch (error) {
+            console.error("Error fetching person details:", error);
+            throw error;
+        }
+    },
+
+    getPlanetDetails: async (id) => {
+        try {
+            const request = await fetch(`${baseUrl}/planets/${id}`, {
+                method: "GET"
+            });
+            if (!request.ok) {
+                throw new Error(`HTTP error! status: ${request.status}`);
+            }
+            const response = await request.json();
+            return response;
+        } catch (error) {
+            console.error("Error fetching planet details:", error);
+            throw error;
+        }
+    },
+
+    getVehicleDetails: async (id) => {
+        try {
+            const request = await fetch(`${baseUrl}/starships/${id}`, {
+                method: "GET"
+            });
+            if (!request.ok) {
+                throw new Error(`HTTP error! status: ${request.status}`);
+            }
+            const response = await request.json();
+            return response;
+        } catch (error) {
+            console.error("Error fetching vehicle details:", error);
+            throw error;
+        }
+    }
 }
 
 export default characterService

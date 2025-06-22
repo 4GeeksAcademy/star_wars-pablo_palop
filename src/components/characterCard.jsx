@@ -1,3 +1,5 @@
+import React from 'react';
+
 const CharacterCard = ({
   characterName,
   characterHairColor,
@@ -8,20 +10,37 @@ const CharacterCard = ({
   isFavorite = false
 }) => {
   return (
-    <div className="card shadow-sm" style={{ width: "18rem", margin: "10px" }}>
+    <div
+      className="card bg-dark text-light border border-warning shadow-lg rounded-3"
+      style={{ width: "18rem", margin: "10px" }}
+    >
       <div className="card-body text-center">
-        <h5 className="card-title">{characterName}</h5>
+        <h5 className="card-title text-warning">{characterName}</h5>
       </div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item"><strong>Hair color:</strong> {characterHairColor}</li>
-        <li className="list-group-item"><strong>Eyes color:</strong> {characterEyesColor}</li>
-        <li className="list-group-item"><strong>Gender:</strong> {characterGender}</li>
+      <ul className="list-group list-group-flush bg-dark border-top border-bottom border-secondary">
+        <li className="list-group-item bg-dark text-light border-secondary">
+          <strong>Hair color:</strong> {characterHairColor}
+        </li>
+        <li className="list-group-item bg-dark text-light border-secondary">
+          <strong>Eyes color:</strong> {characterEyesColor}
+        </li>
+        <li className="list-group-item bg-dark text-light border-secondary">
+          <strong>Gender:</strong> {characterGender}
+        </li>
       </ul>
-      <div className="card-body d-flex justify-content-around">
-        <button onClick={onFavorite} className={`btn ${isFavorite ? 'btn-warning' : 'btn-outline-primary'}`}>
+      <div className="card-body d-flex justify-content-around align-items-center">
+        <button
+          onClick={onLearnMore}
+          className="btn btn-outline-light text-warning"
+        >
+          Learn More
+        </button>
+        <button
+          onClick={onFavorite}
+          className={`btn ${isFavorite ? 'btn-warning' : 'btn-outline-secondary'}`}
+        >
           {isFavorite ? 'Unfavorite' : 'Favorite'}
         </button>
-        <button onClick={onLearnMore} className="btn btn-outline-danger">Learn More</button>
       </div>
     </div>
   );
